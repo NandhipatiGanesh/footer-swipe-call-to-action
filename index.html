@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <title>Nav Bar</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+ 
+    @media (max-width: 500px) {
+        #bottom-bar .mobile .action {
+            align-items: flex-end;
+            display: flex;
+        }
+        #bottom-bar .mobile .action .close {
+            margin: 19px 15px;
+        }
+        #bottom-bar .mobile .action .close img {
+            max-width: none;
+        }
+        #bottom-bar .mobile .swipe-up {
+            padding-left: 0;
+            padding-right: 42px;
+            width: 100%;
+        }
+        #bottom-bar .mobile .swipe {
+            cursor: pointer;
+            text-align: center;
+        }
+        #bottom-bar .mobile .swipe-up .swipe-text {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.6666666667;
+            
+        }
+        #bottom-bar .mobile .swipe .swipe-text {
+            display: inline-block;
+            position: relative;
+        }
+        #bottom-bar {
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+            z-index: 999;
+        }
+        #bottom-bar .mobile {
+            background: #fff;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, .12);
+            touch-action: none;
+            width: 100%;
+        }
+        .swipe-text{
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        p{
+            margin: 0;
+        }
+      
+</style>
+</head>
+<body>
+<section  id="bottom-bar">
+    <div class="mobile"> 
+    <div class="action"><p class="close" style="">
+        <img loading="lazy" class="img" src="https://neilpatel.com/wp-content/themes/neilpatel/images/close-t.svg" width="12" height="12" alt="Close"></p>
+        <p class="swipe swipe-up" data-swipe-threshold="5" data-swipe-timeout="1000" style="">
+            <span class="swipe-text">
+                <img width="15" height="15" src="https://img.icons8.com/external-inkubators-detailed-outline-inkubators/25/external-up-arrow-arrows-inkubators-detailed-outline-inkubators-2.png" alt="external-up-arrow-arrows-inkubators-detailed-outline-inkubators-2"/>
+               <span> Swipe Up to Get More Patients!</span> </span></p></div>
+</div>
+</section>
+<script>
+    document.querySelector('.swipe-up').addEventListener('touchstart', handleTouchStart, false);
+    document.querySelector('.swipe-up').addEventListener('touchmove', handleTouchMove, false);
+    
+    let yDown = null;
+    
+    function handleTouchStart(evt) {
+        const firstTouch = evt.touches[0];
+        yDown = firstTouch.clientY; // Get the vertical position of the touch
+    }
+    
+    function handleTouchMove(evt) {
+        if (!yDown) {
+            return;
+        }
+    
+        let yUp = evt.touches[0].clientY;
+        let yDiff = yDown - yUp;
+    
+        // Setting a threshold for swipe action to be considered valid
+        if (yDiff > 50) { // Swipe up
+            document.getElementById('custombtmnav').style.display = 'block';
+            yDown = null; // Resetting yDown to prevent multiple triggers
+        } else if (yDiff < -50) { // Swipe down
+            document.getElementById('custombtmnav').style.display = 'none';
+            yDown = null; // Resetting yDown to prevent multiple triggers
+        }
+    }
+    function handleTouchStart(evt) {
+        evt.preventDefault(); // Prevent scrolling when touching the swipe area
+        const firstTouch = evt.touches[0];
+        yDown = firstTouch.clientY;
+    }
+    
+    function handleTouchMove(evt) {
+        evt.preventDefault(); // Prevent scrolling when moving touch
+        if (!yDown) {
+            return;
+        }
+    
+        let yUp = evt.touches[0].clientY;
+        let yDiff = yDown - yUp;
+    
+        if (yDiff > 50) {
+            document.getElementById('custombtmnav').style.display = 'block';
+            yDown = null;
+        } else if (yDiff < -50) {
+            document.getElementById('custombtmnav').style.display = 'none';
+            yDown = null;
+        }
+    }
+        
+</script>
+</body>
+</html>
