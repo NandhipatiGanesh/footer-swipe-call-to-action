@@ -5,10 +5,7 @@
     <meta charset="UTF-8" />
     <title>Nav Bar</title>
     <!--Google Fonts and Icons-->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
-      rel="stylesheet"
-    />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,9 +22,10 @@
         #bottom-bar .mobile .action {
             align-items: flex-end;
             display: flex;
+            height: 50px;
         }
         #bottom-bar .mobile .action .close {
-            margin: 19px 15px;
+            margin: 1px 15px;
         }
         #bottom-bar .mobile .action .close img {
             max-width: none;
@@ -42,10 +40,18 @@
             text-align: center;
         }
         #bottom-bar .mobile .swipe-up .swipe-text {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 500;
             line-height: 1.6666666667;
-            
+            font-family: 'Poppins', sans-serif;
+        }
+        .text-list .item{
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.6666666667;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.3px;
+            word-spacing: 2px;
         }
         #bottom-bar .mobile .swipe .swipe-text {
             display: inline-block;
@@ -74,7 +80,39 @@
         p{
             margin: 0;
         }
-      
+        #custombtmnav{
+            background: #fff;
+        }
+        .hidden {
+            display: none;
+            
+        }
+        .hidden:active{
+            width: 100%;
+            height: auto;
+            background: #fff;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, .12);
+            touch-action: none;
+            
+        }
+       .custom-title {
+        font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 12px;
+        }
+        .custom-content-img img{
+            width: 200px;
+            height: auto;
+            background-size: cover;
+            
+        }
+        
+    }
 </style>
 </head>
 <body>
@@ -86,6 +124,29 @@
             <span class="swipe-text">
                 <img width="15" height="15" src="https://img.icons8.com/external-inkubators-detailed-outline-inkubators/25/external-up-arrow-arrows-inkubators-detailed-outline-inkubators-2.png" alt="external-up-arrow-arrows-inkubators-detailed-outline-inkubators-2"/>
                <span> Swipe Up to Get More Patients!</span> </span></p></div>
+</div>
+<div id="custombtmnav" class="hidden">
+<div class="custom-content-div">
+
+    <div class="custom-content-img">
+        <img src="https://advaithealth.com/wp-content/uploads/2024/05/circle-1.png">
+    </div>
+    <div class="custom-content-here"> 
+        <p class="custom-title">Boost Your Hospital's Reach with Our Expert Marketing Campaigns</p>
+        <ul class="text-list">
+            <li class="item"><strong>Social Media Management</strong> – engage with your audience and build a loyal community.</li>
+            <li class="item"><strong>Brand Development</strong> – create a compelling brand identity that stands out.</li>
+            <li class="item"><strong>Patient Outreach Programs</strong> – tailored campaigns to attract and retain patients.</li>
+          </ul>
+    </div>
+    <div class="custom-buttons-contaienrs">
+      <button class="primary-button"> 
+        Schedule an appointment
+      </button>
+      <button class="second-button"> Call Now: +91123456789</button>
+    </div>
+</div>
+
 </div>
 </section>
 <script>
