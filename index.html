@@ -158,6 +158,16 @@
 .close{
     display: none;
 }
+.swipe-down{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 5px;
+}
+.swipe-down img{
+    transform: rotate(-180deg);
+}
         }
         
     
@@ -194,10 +204,15 @@
       <button class="second-button"> Call Now: +91123456789</button>
     </div>
 </div>
-
+<p class="swipe swipe-down" >
+    <img width="15" height="15" src="https://img.icons8.com/external-inkubators-detailed-outline-inkubators/25/external-up-arrow-arrows-inkubators-detailed-outline-inkubators-2.png" alt="external-up-arrow-arrows-inkubators-detailed-outline-inkubators-2"/>
+    <span class="swipe-text">Close</span></p>
 </div>
+
 </section>
+
 <script>
+
     document.querySelector('.swipe-up').addEventListener('touchstart', handleTouchStart, false);
     document.querySelector('.swipe-up').addEventListener('touchmove', handleTouchMove, false);
     
@@ -248,7 +263,17 @@
             yDown = null;
         }
     }
-        
+    function handleClick() {
+        var element = document.getElementById('custombtmnav');
+        if (element.style.display !== 'none') {
+            element.style.display = 'none'; // Hides the element
+        } else {
+            element.style.display = 'block'; // Shows the element if it's already hidden
+        }
+    }
+    
+    document.querySelector('.swipe-down').addEventListener('click', handleClick);
+    
 </script>
 </body>
 </html>
